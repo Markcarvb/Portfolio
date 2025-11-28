@@ -1,0 +1,266 @@
+/* Definições Globais e Reset */
+:root {
+    --cor-principal: #007BFF; /* Azul moderno */
+    --cor-secundaria: #333; /* Texto escuro */
+    --cor-fundo: #f4f4f9; /* Fundo claro e suave */
+    --cor-card: #ffffff;
+    --sombra-leve: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Tipografia */
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.destaque-area {
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+/* --- Cabeçalho e Navegação --- */
+header {
+    background: var(--cor-card);
+    color: var(--cor-secundaria);
+    padding: 1rem 0;
+    box-shadow: var(--sombra-leve);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+}
+
+header ul li a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+header ul li a:hover {
+    color: var(--cor-principal);
+}
+
+/* --- Seções Comuns --- */
+.section {
+    padding: 4rem 0;
+}
+
+/* --- Seção HERO (Sobre Mim) --- */
+.hero {
+    background: linear-gradient(135deg, var(--cor-fundo), #e0e0e0);
+    padding: 6rem 0;
+    text-align: left;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-content .text-content {
+    flex: 1;
+}
+
+.hero-content .profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--sombra-leve);
+    border: 5px solid var(--cor-principal);
+}
+
+.hero-content .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background: var(--cor-principal);
+    color: var(--cor-card);
+    padding: 10px 20px;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3; /* Tom mais escuro */
+}
+
+.btn-secundario {
+    display: inline-block;
+    color: var(--cor-principal);
+    border: 1px solid var(--cor-principal);
+    padding: 8px 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9em;
+}
+
+.btn-secundario:hover {
+    background: var(--cor-principal);
+    color: var(--cor-card);
+}
+
+/* --- Seção de Projetos --- */
+.projetos-grid h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.projetos-grid .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.projeto-card {
+    background: var(--cor-card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-leve);
+    transition: transform 0.3s;
+}
+
+.projeto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.projeto-card h4 {
+    color: var(--cor-principal);
+    margin-bottom: 0.8em;
+}
+
+/* --- Seção de Contato Otimizada --- */
+.contato-links {
+    text-align: center;
+    background: var(--cor-principal);
+    color: var(--cor-card);
+}
+
+.contato-links h3, .contato-links p {
+    color: var(--cor-card);
+}
+
+.links-contato {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante quebras no celular */
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.link-item {
+    background: var(--cor-card);
+    color: var(--cor-principal);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+.link-item:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+/* --- Rodapé --- */
+footer {
+    background: var(--cor-secundaria);
+    color: var(--cor-card);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9em;
+}
+
+/* ==================================== */
+/* RESPONSIVIDADE (MOBILE FIRST) */
+/* ==================================== */
+
+/* Ajustes para telas maiores que 768px (Tablets e PCs) */
+@media (max-width: 768px) {
+    /* HERO: Ajusta a foto e o texto para ficarem em coluna no celular */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content .profile-photo {
+        order: -1; /* Coloca a foto acima do texto */
+        margin-bottom: 2rem;
+    }
+    
+    /* NAV: Ajusta a navegação no topo para celular */
+    header nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header ul {
+        margin-top: 10px;
+    }
+
+    header ul li a {
+        padding: 0 10px;
+        font-size: 0.9em;
+    }
+
+    /* Contato: Links ficam em coluna */
+    .links-contato {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .link-item {
+        max-width: 90%;
+        width: 100%;
+    }
+}
